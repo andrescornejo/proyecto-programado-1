@@ -10,7 +10,7 @@ from timeit import default_timer as timer
 asig = 0 # Variable testigo que almacena las asignaciones.
 comp = 0 # Variable testigo que almacena las comparaciones.
 
-np.random.seed(42) # Utilizar siempre la misma semilla, para poder tener resultados reproducibles.
+#np.random.seed(42) # Utilizar siempre la misma semilla, para poder tener resultados reproducibles.
 
 def euclidean_distance(x1,x2):
     """Funcion que calcula la distancia euclideana entre dos puntos"""
@@ -20,12 +20,13 @@ def euclidean_distance(x1,x2):
 
 class KMeans:
 
-    def __init__(self, K=5, max_iters=100, plot_steps=False):
+    def __init__(self, K=5, max_iters=100, plot_steps=False, plot_final=False):
         global asig 
         global comp
         self.K = K
         self.max_iters = max_iters
         self.plot_steps = plot_steps
+        self.plot_final = plot_final
         asig += 3 # Tres asignaciones de las variables del objeto.
 
         # Lista de indices para cada cluster.
@@ -92,6 +93,7 @@ class KMeans:
                     # Mostrar cuanto tiempo duro el algoritmo.
                     self._get_time(start, end)
                     # Graficar el resultado del algoritmo.
+                if self.plot_final:
                     self.plot()
                 break
 
