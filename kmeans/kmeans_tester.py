@@ -2,7 +2,7 @@
 import numpy as np
 from sklearn.datasets import make_blobs
 import matplotlib.pyplot as plt
-from main import KMeans
+from kmeans import KMeans
 
 SAMPLE_SIZE = 200 # Cantidad de elementos en la muestra.
 
@@ -32,4 +32,4 @@ print("Cantidad de clusters: ", clusters)
 
 # Crear el objeto tipo K-Mean y correr el algoritmo.
 k = KMeans(K=clusters, max_iters=300, plot_steps=False, plot_final=True)
-y_pred = k.predict(descendente)
+y_pred = k.predict(X)
